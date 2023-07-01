@@ -3,10 +3,12 @@ package guru.qa.homework.tests;
 import guru.qa.homework.pages.RegistrationPage;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static guru.qa.homework.utils.RandomUtils.*;
 
+@Tag("automation_practice")
 public class RegistrationTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     public static String imgFilePath = "src/test/resources/haha.jpg";
