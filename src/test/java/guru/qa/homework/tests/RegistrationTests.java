@@ -67,6 +67,5 @@ public class RegistrationTests extends TestBase {
                 .formVerificationWindow("Picture", imgFileName)
                 .formVerificationWindow("Address", address)
                 .formVerificationWindow("State and City", state + " " + city);
-        registrationPage.attachScreenshot();
     }
 }
