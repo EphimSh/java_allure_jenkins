@@ -140,7 +140,7 @@ public class RegistrationPage {
         return this;
     }
 
-    @Step("Verification: {key} and {value}")
+    @Step("Verification: {key} : {value}")
     public RegistrationPage formVerificationWindow(String key, String value) {
         tableResponsive.$(byText(key)).sibling(0).shouldHave(text(value));
         return this;
