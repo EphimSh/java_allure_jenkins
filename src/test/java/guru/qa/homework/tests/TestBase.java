@@ -1,10 +1,16 @@
 package guru.qa.homework.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import guru.qa.homework.helper.Attach;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
@@ -32,5 +38,13 @@ public class TestBase {
     @BeforeEach
     void addListener(){
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
+
+    @AfterEach
+    void addAttachments(){
+        Attach.attachScreenshot("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLog();
+        Attach.addVideo();
     }
 }
