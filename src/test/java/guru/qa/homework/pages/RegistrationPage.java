@@ -42,8 +42,6 @@ public class RegistrationPage {
             tableResponsive = $(".table-responsive");
 
 
-
-
     private final ElementsCollection hobbiesList = $$("#hobbiesWrapper [class*='custom-checkbox']");
 
 
@@ -52,31 +50,37 @@ public class RegistrationPage {
         open("automation-practice-form");
         return this;
     }
-    public RegistrationPage removeBanner(){
+
+    public RegistrationPage removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
+
     @Step("Set firstname {name}")
     public RegistrationPage setFirstName(String name) {
         firstNameInput.setValue(name);
         return this;
     }
+
     @Step("Set lastname {lastName}")
     public RegistrationPage setLastName(String lastName) {
         lastNameInput.setValue(lastName);
         return this;
     }
+
     @Step("Set email {email}")
     public RegistrationPage setEmail(String email) {
         userEmailInput.setValue(email);
         return this;
     }
+
     @Step("Select gender {gender}")
     public RegistrationPage selectGender(String gender) {
         genderWrapper.$(byTextCaseInsensitive(gender)).click();
         return this;
     }
+
     @Step("Set mobile number: {tenDigitsMobileNumber}")
     public RegistrationPage setUserMobNumber(String tenDigitsMobileNumber) {
         userMobNumber.setValue(tenDigitsMobileNumber);
@@ -122,11 +126,13 @@ public class RegistrationPage {
         cityDropDown.$(byText(city)).click();
         return this;
     }
+
     @Step("Press submit button")
     public RegistrationPage pressSubmitButton() {
         submitButton.click();
         return this;
     }
+
     @Step("Set date of birth: {day} {month} {year}")
     public RegistrationPage setDateOfBirth(String day, String month, String year) {
         dateOfBirthInput.click();
@@ -135,7 +141,7 @@ public class RegistrationPage {
     }
 
     @Step("Verification: {key} and {value}")
-    public RegistrationPage formVerificationWindow(String key, String value){
+    public RegistrationPage formVerificationWindow(String key, String value) {
         tableResponsive.$(byText(key)).sibling(0).shouldHave(text(value));
         return this;
     }
