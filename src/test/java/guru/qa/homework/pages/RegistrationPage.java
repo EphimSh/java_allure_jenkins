@@ -146,9 +146,6 @@ public class RegistrationPage {
         return this;
     }
 
-    @Attachment(value = "input_data_verification_window", type = "image/png", fileExtension = "png")
-    public byte[] attachScreenshot() {
-        return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
-    }
+
 
 }
