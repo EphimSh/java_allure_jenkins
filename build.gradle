@@ -57,8 +57,4 @@ task registration_form_test(type: Test) {
         includeTags 'automation_practice'
     }
 }
-task myproperty_test(type: Test) {
-    useJUnitPlatform {
-        includeTags 'myproperty'
-    }
-}
+
