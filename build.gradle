@@ -40,13 +40,12 @@ dependencies {
 
 }
 
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
+tasks.withType(Test).configureEach {
+    systemProperties(System.getProperties())
 }
 
 test {
     useJUnitPlatform()
-    systemProperties(System.getProperties())
 }
 task simple_test(type: Test) {
     useJUnitPlatform {
@@ -56,5 +55,10 @@ task simple_test(type: Test) {
 task registration_form_test(type: Test) {
     useJUnitPlatform {
         includeTags 'automation_practice'
+    }
+}
+task myproperty_test(type: Test) {
+    useJUnitPlatform {
+        includeTags 'myproperty'
     }
 }
