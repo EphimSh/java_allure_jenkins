@@ -24,9 +24,11 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
 
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
+        Configuration.browserSize = System.getProperty("browserSize", "400x940");
         Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com/");
         Configuration.remote = System.getProperty("remoteDriverUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.remote = System.getProperty("videoStorage", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
