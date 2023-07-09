@@ -2,8 +2,10 @@ package guru.qa.homework.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import guru.qa.homework.config.CredentialsConfig;
 import guru.qa.homework.helper.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,14 +18,15 @@ import java.util.Map;
 public class TestBase {
     @BeforeAll
     static void init() {
+        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
         Configuration.pageLoadStrategy = "eager";
 
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "99.0");
         Configuration.browserSize = System.getProperty("browserSize", "1980х1080");
         Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com/");
-        Configuration.remote = System.getProperty("remoteDriverUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-
+        Configuration.remote = System.getProperty("remoteDriverUrl", "https://"+ config.login() +":"+config.password()+"@selenoid.autotests.cloud/wd/hub");
+        System.out.println();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
