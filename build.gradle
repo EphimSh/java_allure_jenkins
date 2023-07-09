@@ -35,7 +35,8 @@ dependencies {
             'org.junit.jupiter:junit-jupiter-api:5.9.3',
             'com.codeborne:selenide:6.14.1',
             'io.qameta.allure:allure-selenide:2.22.2',
-            'com.github.javafaker:javafaker:1.0.2'
+            'com.github.javafaker:javafaker:1.0.2',
+            'org.aeonbits.owner:owner:1.0.12'
     )
 
 }
